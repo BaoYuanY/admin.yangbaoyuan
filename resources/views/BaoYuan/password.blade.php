@@ -69,6 +69,7 @@
                             <thead class="thead-light">
                               <tr>
                                 <th scope="col">平台</th>
+                                <th scope="col">账号</th>
                                 <th scope="col">账号绑定手机号</th>
                                 <th scope="col">绑定邮箱</th>
                                 <th scope="col">密码</th>
@@ -83,6 +84,7 @@
                         table += `
                             <tr>
                               <th>${item.platform}</th>
+                              <th>${item.account}</th>
                               <th>${item.phone}</th>
                               <th>${item.email}</th>
                               <th>${item.password}</th>
