@@ -32,12 +32,17 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">查询密码</label>
-            <input type="text" class="form-control" name="salt" autocomplete="off" required>
+            <input type="password" class="form-control" name="salt" autocomplete="off" required>
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <button type="submit" class="btn btn-primary">查询</button>
     </form>
 
+
+    <br>
+    <br>
+
+    <div id="table-container"></div>
 </div>
 </body>
 <script>
@@ -58,13 +63,44 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }, // 添加 CSRF 令牌头
                 success: function(response) {
-                    // 请求成功的处理逻辑
-                    console.log(response)
+                    // 构建表头
+                    let table = `
+                          <table class="table">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">平台</th>
+                                <th scope="col">账号绑定手机号</th>
+                                <th scope="col">绑定邮箱</th>
+                                <th scope="col">密码</th>
+                                <th scope="col">其他</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                        `;
+
+                    // 添加表格内容
+                    response.data.forEach(item => {
+                        table += `
+                            <tr>
+                              <th>${item.platform}</th>
+                              <th>${item.phone}</th>
+                              <th>${item.email}</th>
+                              <th>${item.password}</th>
+                              <th>${item.salt}</th>
+                            </tr>
+                          `;
+                                        });
+
+                    // 关闭表格标签
+                    table += `
+                            </tbody>
+                          </table>
+                        `;
+                    // 将表格插入到指定容器中
+                    $('#table-container').html(table);
                 },
                 error: function(xhr, status, error) {
-                    // 请求失败的处理逻辑
-                    console.log('登录失败：', error);
-                    console.log(response)
+                    //location.reload()
                 }
             });
         });

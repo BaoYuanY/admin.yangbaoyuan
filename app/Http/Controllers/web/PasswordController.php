@@ -24,7 +24,7 @@ class PasswordController extends Controller
     /**
      * @throws ValidationException
      */
-    public function search(Request $request): \Illuminate\Http\JsonResponse
+    public function search(Request $request)
     {
         $this->validate($request, [
             'platform' => 'required|string',

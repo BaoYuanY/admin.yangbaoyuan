@@ -25,6 +25,7 @@ class PasswordService
                     'platform' => $usePassword->platform,
                     'account'  => $usePassword->account,
                     'email'    => $usePassword->email,
+                    'salt'     => $usePassword->salt,
                     'phone'    => encryptPhone($usePassword->phone),
                     'password' => deAes128Ecb($usePassword->password, $usePassword->platform)
                 ];

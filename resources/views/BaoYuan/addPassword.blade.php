@@ -48,7 +48,7 @@
         <button type="submit" class="btn btn-primary">添加</button>
     </form>
 
-    <div id="alertBox" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 20px; color: #721c24; border-radius: 5px; text-align: center;">
+    <div id="alertBox" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #09C7F7; border: 1px solid #f5c6cb; padding: 20px; color: #721c24; border-radius: 5px; text-align: center;">
         添加成功
     </div>
 
