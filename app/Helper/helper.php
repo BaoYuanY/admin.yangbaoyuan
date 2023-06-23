@@ -24,3 +24,46 @@ if (! function_exists('checkT')) {
         return false;
     }
 }
+
+
+if (!function_exists('enAes128Ecb')) {
+    /**
+     * @param string $data
+     * @param string $key
+     * @return string
+     * 特殊处理 删掉最后面的两个等号
+     */
+    function enAes128Ecb(string $data, string $key): string
+    {
+        return substr(openssl_encrypt($data, 'AES-128-ECB', $key), 0, -2);
+    }
+}
+
+if (!function_exists('deAes128Ecb')) {
+    /**
+     * @param string $data
+     * @param string $key
+     * @return string
+     */
+    function deAes128Ecb(string $data, string $key): string
+    {
+        return openssl_decrypt($data . '==', 'AES-128-ECB', $key);
+    }
+}
+
+
+if (!function_exists('encryptPhone')) {
+    /**
+     * @param string $phone
+     * @return string
+     * 将手机号4-7位用*表示
+     */
+    function encryptPhone(string $phone): string
+    {
+        if (strlen($phone) == 11) {
+            return substr_replace($phone, '****', 3, 4);
+        } else {
+            return "***********";
+        }
+    }
+}

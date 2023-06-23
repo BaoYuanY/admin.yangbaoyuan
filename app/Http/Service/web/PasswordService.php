@@ -25,9 +25,29 @@ class PasswordService
                     'platform' => $usePassword->platform,
                     'account'  => $usePassword->account,
                     'email'    => $usePassword->email,
-                    'phone'    => $usePassword->phone,
+                    'phone'    => encryptPhone($usePassword->phone),
+                    'password' => deAes128Ecb($usePassword->password, $usePassword->platform)
                 ];
             })->values()->toArray();
+    }
+
+    public static function add(array $params): bool
+    {
+        $field = [
+            'platform',
+            'phone',
+            'account',
+            'email',
+            'password',
+            'salt',
+        ];
+
+        $params['password'] = enAes128Ecb($params['password'], $params['platform']);
+
+        $insertData = array_filter($params, function ($key) use ($field) {
+            return in_array($key, $field);
+        }, ARRAY_FILTER_USE_KEY);
+        return UsePasswordAllModel::query()->insert(array_filter($insertData));
     }
 
 }

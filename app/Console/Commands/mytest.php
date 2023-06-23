@@ -37,6 +37,7 @@ class mytest extends Command
      */
     public function handle()
     {
-
+        dd(enAes128Ecb('yuque@0304', '语雀'));
+//        dd(deAes128Ecb('2EyPljoY+5AghOGtWgsYkg', 'QQ'));
     }
 }

@@ -18,8 +18,10 @@ Route::get('/', function () {
 });
 
 Route::prefix('/password')->group(function () {
+    Route::get('/index/add', [\App\Http\Controllers\web\PasswordController::class, 'indexAdd']);
     Route::get('/index', [\App\Http\Controllers\web\PasswordController::class, 'index']);
     Route::post('/search', [\App\Http\Controllers\web\PasswordController::class, 'search']);
+    Route::post('/add', [\App\Http\Controllers\web\PasswordController::class, 'add']);
 });
 
 Route::get('/success', function () {
