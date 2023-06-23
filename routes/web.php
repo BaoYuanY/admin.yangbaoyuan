@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('/password')->group(function () {
+    Route::get('/index', [\App\Http\Controllers\web\PasswordController::class, 'index']);
+    Route::post('/search', [\App\Http\Controllers\web\PasswordController::class, 'search']);
+});
+
 Route::get('/success', function () {
     return '连接成功';
 });
