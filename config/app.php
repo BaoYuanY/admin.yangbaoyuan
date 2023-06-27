@@ -229,4 +229,7 @@ return [
 
     ],
 
+    //Sql日志文件
+    'log_sql_queries' => env('APP_LOG_SQL_QUERIES', false),
+
 ];
