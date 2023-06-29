@@ -93,7 +93,7 @@
                               <th data-value=${item.account}>${item.account}</th>
                               <th data-value=${item.phone}>${item.phone}</th>
                               <th data-value=${item.email}>${item.email}</th>
-                              <th data-value=${item.password}>${item.password}</th>
+                              <th data-value=${item.copy}>${item.encryptPassword}</th>
                               <th data-value=${item.salt}>${item.salt}</th>
                             </tr>
                           `;
