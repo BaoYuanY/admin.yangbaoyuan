@@ -64,8 +64,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }, // 添加 CSRF 令牌头
                 success: function(response) {
-console.log(response)
-console.log(response.data)
                     if (response.data == null) {
                         $('#table-container').html('无');
                         return;
@@ -91,12 +89,12 @@ console.log(response.data)
                     response.data.forEach(item => {
                         table += `
                             <tr>
-                              <th>${item.platform}</th>
-                              <th>${item.account}</th>
-                              <th>${item.phone}</th>
-                              <th>${item.email}</th>
-                              <th>${item.password}</th>
-                              <th>${item.salt}</th>
+                              <th data-value=${item.platform}>${item.platform}</th>
+                              <th data-value=${item.account}>${item.account}</th>
+                              <th data-value=${item.phone}>${item.phone}</th>
+                              <th data-value=${item.email}>${item.email}</th>
+                              <th data-value=${item.password}>${item.password}</th>
+                              <th data-value=${item.salt}>${item.salt}</th>
                             </tr>
                           `;
                                         });
@@ -108,6 +106,31 @@ console.log(response.data)
                         `;
                     // 将表格插入到指定容器中
                     $('#table-container').html(table);
+
+                    // 获取所有表格单元格
+                    const tds = document.querySelectorAll('th');
+
+                    // 为每个单元格添加点击事件监听器
+                    tds.forEach(td => {
+                        td.addEventListener('click', () => {
+                            // 获取要复制的值
+                            const value = td.getAttribute('data-value');
+
+                            // 创建一个临时输入元素并将要复制的值设置为其值
+                            const tempInput = document.createElement('input');
+                            tempInput.value = value;
+                            document.body.appendChild(tempInput);
+
+                            // 选中并复制临时输入元素的值
+                            tempInput.select();
+                            document.execCommand('copy');
+
+                            // 移除临时输入元素
+                            document.body.removeChild(tempInput);
+
+                        });
+                    });
+
                 },
                 error: function(xhr, status, error) {
                     //location.reload()
