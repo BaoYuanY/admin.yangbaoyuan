@@ -14,7 +14,7 @@
 <div class="container">
     <br>
     <div class="alert alert-danger" role="alert">
-        这都被你发现了 <a class="nav-link active" href="/password/index">查询账号</a>
+        这都被你发现了 <a class="nav-link active" href="/password">查询账号</a>
     </div>
 
     <br>
