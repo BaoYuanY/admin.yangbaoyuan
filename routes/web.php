@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/password')->group(function () {
+Route::prefix('/pwd')->group(function () {
     Route::get('/add', [\App\Http\Controllers\web\PasswordController::class, 'indexAdd']);
     Route::get('/', [\App\Http\Controllers\web\PasswordController::class, 'index']);
     Route::post('/search', [\App\Http\Controllers\web\PasswordController::class, 'search']);
