@@ -14,8 +14,29 @@
 <div class="container">
     <br>
     <div class="alert alert-danger" role="alert">
-        这都被你发现了 <a class="nav-link active" href="/password">查询账号</a>
+        这都被你发现了 <a class="nav-link active" href="/pwd">查询账号</a>
     </div>
+
+    <h3>随机生成密码</h3>
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">请输入密码长度</div>
+                </div>
+                <input type="number" class="form-control" id="length" min="1" value="8" placeholder="密码长度">
+            </div>
+        </div>
+    </div>
+    <button onclick="generatePassword()" class="btn btn-primary btn-sm">生成全字符密码</button>
+    <button onclick="generatePassword1()" class="btn btn-primary btn-sm">生成大小写字母加数字密码</button>
+    <button onclick="copyPassword()" class="btn btn-primary btn-sm">复制密码</button>
+    <br>
+    <br>
+
+    <textarea id="password" rows="2" cols="30" readonly></textarea>
+
 
     <br>
 
@@ -64,7 +85,7 @@
 
             // 使用 AJAX 发送表单数据
             $.ajax({
-                url: '/password/add', // 服务器端的接收URL
+                url: '/pwd/add', // 服务器端的接收URL
                 type: 'POST', // 提交表单的HTTP方法
                 data: formData, // 发送表单的数据
                 dataType: 'json', // 预期从服务器返回的数据类型
@@ -87,5 +108,39 @@
             });
         });
     });
+    function generatePassword() {
+        var lengthInput = document.getElementById("length");
+        var length = parseInt(lengthInput.value);
+
+        var charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
+        var password = '';
+        for (var i = 0; i < length; i++) {
+            var randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+
+        var passwordInput = document.getElementById("password");
+        passwordInput.value = password;
+    }
+    function generatePassword1() {
+        var lengthInput = document.getElementById("length");
+        var length = parseInt(lengthInput.value);
+
+        var charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var password = '';
+        for (var i = 0; i < length; i++) {
+            var randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+
+        var passwordInput = document.getElementById("password");
+        passwordInput.value = password;
+    }
+
+    function copyPassword() {
+        var passwordInput = document.getElementById("password");
+        passwordInput.select();
+        document.execCommand("copy");
+    }
 </script>
 </html>

@@ -15,7 +15,7 @@
 <div class="container">
     <br>
     <div class="alert alert-danger" role="alert">
-        这都被你发现了   <a class="nav-link active" href="/password/add">添加账号</a>
+        这都被你发现了   <a class="nav-link active" href="/pwd/add">添加账号</a>
     </div>
 
     <br>
@@ -56,7 +56,7 @@
 
             // 使用 AJAX 发送表单数据
             $.ajax({
-                url: '/password/search', // 服务器端的接收URL
+                url: '/pwd/search', // 服务器端的接收URL
                 type: 'POST', // 提交表单的HTTP方法
                 data: formData, // 发送表单的数据
                 dataType: 'json', // 预期从服务器返回的数据类型
