@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <title>ADD-PASSWORD</title>
 </head>
+<style>
+    .btn-sm {
+        margin-bottom: 10px;
+    }
+</style>
 <body>
 <div class="container">
     <br>
