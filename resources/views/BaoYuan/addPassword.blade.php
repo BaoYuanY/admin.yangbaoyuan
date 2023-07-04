@@ -147,5 +147,8 @@
         passwordInput.select();
         document.execCommand("copy");
     }
+
+    //默认生成一个
+    generatePassword();
 </script>
 </html>
