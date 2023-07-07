@@ -28,9 +28,9 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.log_sql_queries')) {
             DB::listen(function ($query) {
                 Log::channel('sql')->info('SQL Query', [
-                    'sql' => $query->sql,
+                    'sql'      => $query->sql,
                     'bindings' => $query->bindings,
-                    'time' => $query->time,
+                    'time'     => $query->time,
                 ]);
             });
         }
