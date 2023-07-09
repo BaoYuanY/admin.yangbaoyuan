@@ -109,5 +109,9 @@ return [
 
 
     ],
-
+    'query' => [
+        'enabled'     => true,
+        'only_prefix' => env('LOG_SQL_PREFIX', ''),
+        'channel'     => 'sql',
+    ]
 ];

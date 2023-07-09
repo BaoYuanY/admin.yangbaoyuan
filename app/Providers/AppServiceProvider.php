@@ -25,14 +25,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('app.log_sql_queries')) {
-            DB::listen(function ($query) {
-                Log::channel('sql')->info('SQL Query', [
-                    'sql'      => $query->sql,
-                    'bindings' => $query->bindings,
-                    'time'     => $query->time,
-                ]);
-            });
-        }
+        //        if (config('app.log_sql_queries')) {
+        //            DB::listen(function ($query) {
+        //                Log::channel('sql')->info('SQL Query', [
+        //                    'sql'      => $query->sql,
+        //                    'bindings' => $query->bindings,
+        //                    'time'     => $query->time,
+        //                ]);
+        //            });
+        //        }
     }
 }
