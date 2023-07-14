@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\web\PasswordController;
+use App\Http\Controllers\web\UploadFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +20,17 @@ Route::get('/', function () {
 });
 
 Route::prefix('/pwd')->group(function () {
-    Route::get('/add', [\App\Http\Controllers\web\PasswordController::class, 'indexAdd']);
-    Route::get('/', [\App\Http\Controllers\web\PasswordController::class, 'index']);
-    Route::post('/search', [\App\Http\Controllers\web\PasswordController::class, 'search']);
-    Route::post('/add', [\App\Http\Controllers\web\PasswordController::class, 'add']);
+    Route::get('/add', [PasswordController::class, 'indexAdd']);
+    Route::get('/', [PasswordController::class, 'index']);
+    Route::post('/search', [PasswordController::class, 'search']);
+    Route::post('/add', [PasswordController::class, 'add']);
 });
+
+
+Route::prefix('/upload')->group(function () {
+    Route::get('/', [UploadFileController::class, 'view']);
+});
+
 
 Route::get('/success', function () {
     return '连接成功';

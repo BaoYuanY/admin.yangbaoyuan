@@ -31,7 +31,7 @@ if (!function_exists('enAes128Ecb')) {
      */
     function enAes128Ecb(string $data, string $key): string
     {
-        return substr(openssl_encrypt($data, 'AES-128-ECB', $key), 0, -2);
+        return openssl_encrypt($data, 'AES-128-ECB', $key);
     }
 }
 
@@ -43,7 +43,7 @@ if (!function_exists('deAes128Ecb')) {
      */
     function deAes128Ecb(string $data, string $key): string
     {
-        return openssl_decrypt($data . '==', 'AES-128-ECB', $key);
+        return openssl_decrypt($data, 'AES-128-ECB', $key);
     }
 }
 
