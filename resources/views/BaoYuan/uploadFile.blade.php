@@ -21,15 +21,15 @@
                     <label class="input-group-text" for="validatedInputGroupSelect">请选择上传平台</label>
                 </div>
                 <select class="custom-select" id="validatedInputGroupSelect" required>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">七牛云</option>
+                    <option value="2">阿里云</option>
+                    <option value="3">腾讯云</option>
                 </select>
             </div>
         </div>
 
         <div class="custom-file mb-3">
-            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+            <input type="file" class="custom-file-input" name="file" id="validatedCustomFile" required>
             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
             <div class="invalid-feedback">Example invalid custom file feedback</div>
         </div>
