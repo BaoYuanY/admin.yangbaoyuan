@@ -30,8 +30,7 @@
 
         <div class="custom-file mb-3">
             <input type="file" class="custom-file-input" name="file" id="validatedCustomFile" required>
-            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-            <div class="invalid-feedback">Example invalid custom file feedback</div>
+            <label class="custom-file-label" for="validatedCustomFile">选择文件</label>
         </div>
     </form>
 </div>
