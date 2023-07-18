@@ -29,6 +29,7 @@ Route::prefix('/pwd')->group(function () {
 
 Route::prefix('/upload')->group(function () {
     Route::get('/', [UploadFileController::class, 'view']);
+    Route::post('/save', [UploadFileController::class, 'upload']);
 });
 
 

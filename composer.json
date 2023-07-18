@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "qiniu/php-sdk": "^7.9",
         "ritaswc/laravel-query-logger": "^2.1",
         "sentry/sentry-laravel": "^3.6"
     },
