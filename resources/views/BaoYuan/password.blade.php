@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <title>PASSWORD</title>
 </head>
+<style>
+    th {
+        cursor: pointer;
+    }
+</style>
 <body>
 <div class="container">
     <br>
