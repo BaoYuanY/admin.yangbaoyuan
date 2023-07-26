@@ -106,7 +106,12 @@ return [
             'level' => 'debug',
             'days' => 14,
         ],
-
+        'feishuSend' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/feishuSend.log'),
+            'level' => 'debug',
+            'days' => 14,
+        ],
 
     ],
     'query' => [

@@ -1,0 +1,12 @@
+{
+    "tag": "div",
+    "fields": [
+        {
+            "is_short": true,
+            "text": {
+                "tag": "lark_md",
+                "content": "**%s**%s"
+            }
+        }
+    ]
+}
