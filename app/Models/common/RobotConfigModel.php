@@ -5,10 +5,10 @@ namespace App\Models\common;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FeishuRobotConfigModel extends Model
+class RobotConfigModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'feishu_robot_config_model';
+    protected $table = 'robot_config';
 
 }
