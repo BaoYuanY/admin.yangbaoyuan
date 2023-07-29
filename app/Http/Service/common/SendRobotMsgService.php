@@ -2,16 +2,16 @@
 
 namespace App\Http\Service\common;
 
-use App\Models\common\FeishuRobotConfigModel;
+use App\Models\common\RobotConfigModel;
 use Guanguans\Notify\Factory;
 use Guanguans\Notify\Messages\FeiShu\CardMessage;
 use Illuminate\Support\Facades\Log;
 
-class SendFeishuMsgService
+class SendRobotMsgService
 {
 
     /**
-     * 组建消息
+     * 组建飞书发送消息体
      * @param string $title
      * @param string $color
      * @param array $content 支持两种方式  一种是key->value格式  一种是['attribute'=>属性,'value'=>值]
@@ -35,25 +35,55 @@ class SendFeishuMsgService
         return $headerArr;
     }
 
-    public static function send(string $title, string $color, array $content, FeishuRobotConfigModel $robot)
+    /**
+     * 发送飞书通知
+     * @param string $title
+     * @param array $content
+     * @param RobotConfigModel $robot
+     * @param string $color
+     * @return void
+     */
+    public static function sendByFeishu(string $title, array $content, RobotConfigModel $robot, string $color = 'blue')
     {
-        Log::channel('feishuSend')->info(
-            '发送内容：' . json_encode([
-                'title'   => $title,
-                'color'   => $color,
-                'content' => $content,
-                'robot'   => $robot->id,
-            ], JSON_UNESCAPED_UNICODE)
-        );
+        //添加发送日志
+        self::addCreateSendLog($robot->platformText, json_encode([
+            'title'   => $title,
+            'color'   => $color,
+            'content' => $content,
+            'robot'   => $robot->id,
+        ], JSON_UNESCAPED_UNICODE));
+
         $arr        = self::formationMsg($title, $color, $content);
         $sendResult = Factory::feiShu()
             ->setToken($robot->token)
             ->setSecret($robot->secret)
             ->setMessage(new CardMessage($arr))
             ->send();
-        Log::channel('feishuSend')->info(
-            '发送结果：' . json_encode($sendResult, JSON_UNESCAPED_UNICODE)
-        );
+
+        self::addResultSendLog(json_encode($sendResult, JSON_UNESCAPED_UNICODE));
+    }
+
+
+    /**
+     * 记录发送日志
+     * @param string $platform
+     * @param string $contentJson
+     * @return void
+     */
+    public static function addCreateSendLog(string $platform, string $contentJson)
+    {
+        Log::channel('robotSend')->info('发送平台：' . $platform . '发送内容：' . $contentJson);
+    }
+
+
+    /**
+     * 记录发送结果日志
+     * @param string $contentJson
+     * @return void
+     */
+    public static function addResultSendLog(string $contentJson)
+    {
+        Log::channel('robotSend')->info('发送结果：' . $contentJson);
     }
 
 }

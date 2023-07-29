@@ -106,9 +106,9 @@ return [
             'level' => 'debug',
             'days' => 14,
         ],
-        'feishuSend' => [
+        'robotSend' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/feishuSend.log'),
+            'path' => storage_path('logs/robotSend.log'),
             'level' => 'debug',
             'days' => 14,
         ],
