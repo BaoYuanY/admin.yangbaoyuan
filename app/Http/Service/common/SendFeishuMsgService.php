@@ -14,7 +14,7 @@ class SendFeishuMsgService
      * 组建消息
      * @param string $title
      * @param string $color
-     * @param array $content
+     * @param array $content 支持两种方式  一种是key->value格式  一种是['attribute'=>属性,'value'=>值]
      * @return array
      */
     public static function formationMsg(string $title, string $color, array $content): array
