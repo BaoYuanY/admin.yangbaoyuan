@@ -3,6 +3,7 @@
 namespace App\Http\Service\common;
 
 use App\Models\common\RobotConfigModel;
+use Carbon\Carbon;
 use Guanguans\Notify\Factory;
 use Guanguans\Notify\Messages\FeiShu\CardMessage;
 use Illuminate\Support\Facades\Log;
@@ -61,6 +62,31 @@ class SendRobotMsgService
             ->send();
 
         self::addResultSendLog(json_encode($sendResult, JSON_UNESCAPED_UNICODE));
+    }
+
+    /**
+     * 测试
+     * @return void
+     */
+    public static function sendByFeishuTest()
+    {
+        $content = [
+            [
+                'attribute' => '日期：',
+                'value' => Carbon::now()->format('Y-m-d'),
+            ],
+            [
+                'attribute' => '时间：',
+                'value' => Carbon::now()->format('H:i:s'),
+            ],
+            [
+                'attribute' => '星期：',
+                'value' => Carbon::now()->dayOfWeekIso,
+            ]
+        ];
+        $robotConfigModel = RobotConfigModel::query()->where('id', 1)->first();
+        SendRobotMsgService::sendByFeishu('时间', $content, $robotConfigModel);
+        Log::channel('robotSend')->info('发送测试消息');
     }
 
 
