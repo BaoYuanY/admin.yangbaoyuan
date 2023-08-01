@@ -37,6 +37,6 @@ class UploadFileController extends Controller
 
         UploadFileService::uploadFile($file->getRealPath(), $fileExtension, $name, $type);
 
-        //return redirect()->back();
+        return redirect()->back();
     }
 }

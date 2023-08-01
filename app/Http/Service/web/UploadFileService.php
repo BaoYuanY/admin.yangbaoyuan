@@ -11,31 +11,21 @@ class UploadFileService
     /**
      * @throws Exception
      */
-    public static function uploadFile(string $filePath, string $suffix, string $fileName, string $type)
+    public static function uploadFile(string $filePath, string $suffix, string $fileName, string $type): array
     {
-        $fileUrl = '';
+        $fileName = $fileName . '.' . $suffix;
         switch ($type) {
             case UploadFileEnum::UPLOAD_FILE_TYPE_QINIUYUN:
-                $fileUrl = OssService::qiniuyunOss($filePath, $fileName . '.' . $suffix);
-                break;
-            case UploadFileEnum::UPLOAD_FILE_TYPE_TENXUNYUN:
-
+                $fileUrl = OssService::qiniuyunOss($filePath, $fileName);
                 break;
             case UploadFileEnum::UPLOAD_FILE_TYPE_ALIYUN:
-
+                $fileUrl = OssService::aliyunOss($filePath, $fileName);
                 break;
             default:
-                //上传到本地
-
-
-
+                $fileUrl = '';
         }
-
-
-
-
         @unlink($filePath);
-        return (bool)mb_strlen($fileUrl);
+        return ['fileUrl' => $fileUrl];
     }
 
 

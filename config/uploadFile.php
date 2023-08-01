@@ -11,6 +11,10 @@ return [
 
     ],
     'aliyun'     => [
-
+        'AccessKeyId'     => env('ALIYUN_ACCESS_KEY_ID', ''),
+        'AccessKeySecret' => env('ALIYUN_ACCESS_KEY_SECRET', ''),
+        'Endpoint'        => env('ALIYUN_ENDPOINT', ''),
+        'Bucket'          => env('ALIYUN_BUCKET', ''),
+        'CdnUrl'          => env('ALIYUN_CDN_URL', ''),
     ]
 ];
