@@ -3,6 +3,7 @@
 namespace App\Http\Service\web;
 
 use App\Models\web\UsePasswordAllModel;
+use function Clue\StreamFilter\fun;
 
 class PasswordService
 {
@@ -50,6 +51,22 @@ class PasswordService
             return in_array($key, $field);
         }, ARRAY_FILTER_USE_KEY);
         return UsePasswordAllModel::query()->insert(array_filter($insertData));
+    }
+
+    public static function getPlatforms(): array
+    {
+        $list = [];
+        UsePasswordAllModel::query()
+            ->chunkById(10, function ($usePasswords) use (&$list) {
+                foreach ($usePasswords as $usePassword) {
+                    $list[$usePassword->platform] = [
+                        'id'   => $usePassword->platform,
+                        'name' => $usePassword->platform
+                    ];
+                }
+            });
+
+        return array_values($list);
     }
 
 }

@@ -51,4 +51,13 @@ class PasswordController extends Controller
     }
 
 
+    /**
+     * @throws ValidationException
+     */
+    public function getPlatforms(): \Illuminate\Http\JsonResponse
+    {
+        return $this->success(PasswordService::getPlatforms());
+    }
+
+
 }

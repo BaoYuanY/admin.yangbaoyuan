@@ -24,6 +24,7 @@ Route::prefix('/pwd')->group(function () {
     Route::get('/', [PasswordController::class, 'index']);
     Route::post('/search', [PasswordController::class, 'search']);
     Route::post('/add', [PasswordController::class, 'add']);
+    Route::get('/getPlatforms', [PasswordController::class, 'getPlatforms']);
 });
 
 
