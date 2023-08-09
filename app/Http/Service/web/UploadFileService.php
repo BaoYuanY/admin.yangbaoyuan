@@ -4,6 +4,7 @@ namespace App\Http\Service\web;
 
 use App\Enums\web\UploadFileEnum;
 use App\Http\Service\common\OssService;
+use App\Models\web\UploadFIleRecordModel;
 use Exception;
 
 class UploadFileService
@@ -25,11 +26,16 @@ class UploadFileService
                 $fileUrl = '';
         }
         @unlink($filePath);
+        //日志记录
+
+        $uploadFileRecordModel       = new UploadFIleRecordModel();
+        $uploadFileRecordModel->url  = $fileUrl;
+        $uploadFileRecordModel->type = $type;
+        $uploadFileRecordModel->save();
+
+
         return ['fileUrl' => $fileUrl];
     }
-
-
-
 
 
 }
