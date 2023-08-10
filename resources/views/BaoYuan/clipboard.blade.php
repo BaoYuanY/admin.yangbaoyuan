@@ -30,7 +30,7 @@
         @foreach ($clipboards as $clipboard)
             <tr>
                 <th scope="row"> {{$clipboard->id}} </th>
-                <td class="content"> {{$clipboard->content}} </td>
+                <td class="content">{{$clipboard->content}}</td>
                 <td> {{$clipboard->created_at}} </td>
                 <td><button type="button" class="btn btn-success copy-btn">复制</button>
                     <button type="button" class="btn btn-danger delete-btn" data-id="{{$clipboard->id}}">删除</button>
@@ -43,7 +43,7 @@
 <script>
     $(document).ready(function() {
         $('.copy-btn').click(function() {
-            let content = $(this).closest('tr').find('.content').text();
+            let content = $(this).closest('tr').find('.content').text().trim();
             let temp = $('<textarea>');
             $('body').append(temp);
             temp.val(content).select();
