@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\web\ClipboardController;
 use App\Http\Controllers\web\PasswordController;
 use App\Http\Controllers\web\UploadFileController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,13 @@ Route::prefix('/upload')->group(function () {
     Route::get('/', [UploadFileController::class, 'view']);
     Route::post('/save', [UploadFileController::class, 'upload']);
 });
+
+
+
+Route::prefix('/clipboard')->group(function () {
+    Route::get('/', [ClipboardController::class, 'view']);
+});
+
 
 
 Route::get('/success', function () {
