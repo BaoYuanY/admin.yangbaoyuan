@@ -5,15 +5,26 @@ namespace App\Http\Controllers\web;
 use App\Enums\web\UploadFileEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Service\web\UploadFileService;
+use App\Models\web\UploadFIleRecordModel;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use function Clue\StreamFilter\fun;
 
 class UploadFileController extends Controller
 {
     public function view()
     {
-        return view('BaoYuan/uploadFile')->with(['select' => UploadFileEnum::UPLOAD_FILE_MAPPING]);
+        $files = UploadFIleRecordModel::query()
+            ->where('created_at', '>', Carbon::now()->subDay()->format('Y-m-d H:i:s'))
+            ->get()
+            ->map(function (UploadFIleRecordModel $model) {
+                $model->platformText = UploadFileEnum::UPLOAD_FILE_MAPPING[$model->type];
+                return $model;
+            });
+
+        return view('BaoYuan/uploadFile')->with(['select' => UploadFileEnum::UPLOAD_FILE_MAPPING, 'files' => $files]);
     }
 
     /**

@@ -40,6 +40,39 @@
         </div>
         <button type="submit" class="btn btn-primary" id="liveToastBtn">上传</button>
     </form>
+
+    <br>
+    <div class="alert alert-success" role="alert">
+        上传记录(一天时间内)
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">上传平台</th>
+            <th scope="col">文件URL</th>
+            <th scope="col">上传时间</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($files as $file)
+            <tr>
+                <th scope="row"> {{$file->id}} </th>
+                <td> {{$file->platformText}} </td>
+                <td class="content">{{$file->url}}</td>
+                <td> {{$file->created_at}} </td>
+                <td><button type="button" class="btn btn-success copy-btn">复制</button>
+                    <button type="button" class="btn btn-danger delete-btn" data-id="{{$file->id}}">删除</button>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+
+
+
 </div>
 <script>
     $(document).ready(function(){
@@ -47,6 +80,14 @@
             var fileName = $(this).val().split('\\').pop();
             $(this).siblings('.custom-file-label').html(fileName);
         });
+    });
+    $('.copy-btn').click(function() {
+        let content = $(this).closest('tr').find('.content').text().trim();
+        let temp = $('<textarea>');
+        $('body').append(temp);
+        temp.val(content).select();
+        document.execCommand('copy');
+        temp.remove();
     });
 </script>
 </body>
