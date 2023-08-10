@@ -9,7 +9,7 @@
     <link rel="icon" href="https://qiniu.yangbaoyuan.cn/clipboard.png" sizes="32x32" type="image/png">
     <script src="/js/jquery-3.7.0.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <title>CLIPBOARD</title>
+    <title>ADD-CLIPBOARD</title>
 </head>
 <body>
 <div class="container">
