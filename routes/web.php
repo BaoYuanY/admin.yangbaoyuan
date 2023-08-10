@@ -38,6 +38,9 @@ Route::prefix('/upload')->group(function () {
 
 Route::prefix('/clipboard')->group(function () {
     Route::get('/', [ClipboardController::class, 'view']);
+    Route::delete('/{id}', [ClipboardController::class, 'delete']);
+    Route::get('/add', [ClipboardController::class, 'addView']);
+    Route::post('/add', [ClipboardController::class, 'add']);
 });
 
 
