@@ -14,9 +14,10 @@
 <body>
 <div class="container">
     <br>
-    <br>
-    <br>
-    <form method="post">
+    <div class="alert alert-info" role="alert">
+        <a class="nav-link active" href="/clipboard">查询剪贴板</a>
+    </div>
+    <form method="post" action="/clipboard/add">
         @csrf
         <div class="form-group">
             <label for="exampleFormControlTextarea1">请输入内容</label>

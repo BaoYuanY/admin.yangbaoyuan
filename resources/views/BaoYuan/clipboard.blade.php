@@ -14,8 +14,9 @@
 <body>
 <div class="container">
     <br>
-    <br>
-    <br>
+    <div class="alert alert-info" role="alert">
+        <a class="nav-link active" href="/clipboard/add">添加内容</a>
+    </div>
     <table class="table table-bordered">
         <thead>
         <tr>
