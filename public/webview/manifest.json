@@ -1,0 +1,15 @@
+{
+    "name": "BaoYuan",
+    "short_name": "BaoYuan",
+    "icons": [
+        {
+            "src": "https://qiniu.yangbaoyuan.cn/baby-app.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
+}

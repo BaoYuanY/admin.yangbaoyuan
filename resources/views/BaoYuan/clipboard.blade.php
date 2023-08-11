@@ -17,6 +17,15 @@
     <div class="alert alert-info" role="alert">
         <a class="nav-link active" href="/clipboard/add">添加内容</a>
     </div>
+{{--    <button style="display: none" id="pwa" type="button" class="btn btn-dark" onclick="pwaEvent.prompt()">安装应用</button>--}}
+{{--    <script>--}}
+{{--        let pwaEvent = null--}}
+{{--        window.addEventListener('beforeinstallprompt', e => {--}}
+{{--            pwaEvent = e--}}
+{{--            pwa.style.display = 'block'--}}
+{{--        })--}}
+{{--    </script>--}}
+    <br>
     <table class="table table-bordered">
         <thead>
         <tr>
