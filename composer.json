@@ -18,6 +18,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "league/geotools": "^1.1",
         "qcloud/cos-sdk-v5": "^2.6",
         "qiniu/php-sdk": "^7.9",
         "ritaswc/laravel-query-logger": "^2.1",

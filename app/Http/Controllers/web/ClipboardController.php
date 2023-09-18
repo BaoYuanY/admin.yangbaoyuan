@@ -13,7 +13,7 @@ class ClipboardController extends Controller
     public function view()
     {
         $clipboards = ClipboardModel::query()
-            ->where('created_at', '>', Carbon::now()->subDays(7)->format('Y-m-d H:i:s'))
+            //->where('created_at', '>', Carbon::now()->subDays(7)->format('Y-m-d H:i:s'))
             ->get();
         return view('BaoYuan/clipboard')->with('clipboards', $clipboards);
     }
