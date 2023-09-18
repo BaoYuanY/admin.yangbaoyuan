@@ -15,10 +15,12 @@ class PasswordService
 
         return UsePasswordAllModel::query()
             ->where('platform', 'like', "%{$platform}%")
-            ->where(function ($query) use ($account) {
-                $query->where('account', 'like', "%{$account}%")
-                    ->orWhere('email', 'like', "%{$account}%")
-                    ->orWhere('phone', 'like', "%{$account}%");
+            ->when(mb_strlen($account), function ($query) use ($account){
+                $query->where(function ($query) use ($account) {
+                    $query->where('account', 'like', "%{$account}%")
+                        ->orWhere('email', 'like', "%{$account}%")
+                        ->orWhere('phone', 'like', "%{$account}%");
+                });
             })
             ->get()
             ->map(function ($usePassword) {

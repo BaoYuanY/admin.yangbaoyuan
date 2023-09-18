@@ -8,8 +8,8 @@
     <link rel="icon" href="https://baoyuan-one.oss-cn-shanghai.aliyuncs.com/password.png" sizes="32x32" type="image/png">
 {{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">--}}
     <script src="/js/jquery-3.7.0.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@latest/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@latest/dist/js/select2.min.js"></script>
+    <link href="/css/select2.min.css" rel="stylesheet" />
+    <script src="/js/select2.min.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <title>PASSWORD</title>
 </head>
@@ -36,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">请输入账号</label>
-            <input type="text" class="form-control" name='account' autocomplete="off" required>
+            <input type="text" value="" class="form-control" name='account' autocomplete="off">
             <small id="text" class="form-text text-muted">支持模糊搜索</small>
         </div>
         <div class="form-group">

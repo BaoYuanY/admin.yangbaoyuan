@@ -28,11 +28,13 @@ class PasswordController extends Controller
     {
         $this->validate($request, [
             'platform' => 'required|string',
-            'account'  => 'required|string',
             'salt'     => 'required|string',
         ]);
 
-        return $this->success(PasswordService::search($request->platform, $request->account, $request->salt));
+        $platform = $request->post('platform', '');
+        $account  = $request->post('account', '');
+        $salt     = $request->post('salt', '');
+        return $this->success(PasswordService::search($platform, $account ?: '', $salt));
     }
 
 
