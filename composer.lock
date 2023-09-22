@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c76a00d1f16ca968c04802d6665c2b5",
+    "content-hash": "9ab777e58740d2fb5406b28b682551c4",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -8267,6 +8267,51 @@
                 "source": "https://github.com/geocoder-php/php-common/tree/4.6.0"
             },
             "time": "2022-07-30T11:09:43+00:00"
+        },
+        {
+            "name": "zedisdog/laravel-schema-extend",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zedisdog/laravel-schema-extend.git",
+                "reference": "5da28586258f4341667239d3648719a0dfcf8885"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zedisdog/laravel-schema-extend/zipball/5da28586258f4341667239d3648719a0dfcf8885",
+                "reference": "5da28586258f4341667239d3648719a0dfcf8885",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.4",
+                "illuminate/support": ">=5.4",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0|^6.0|^8.4|^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jialeo\\LaravelSchemaExtend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "zed",
+                    "email": "2692273254@qq.com"
+                }
+            ],
+            "description": "supplement for eloquent migration",
+            "support": {
+                "issues": "https://github.com/zedisdog/laravel-schema-extend/issues",
+                "source": "https://github.com/zedisdog/laravel-schema-extend/tree/1.4.1"
+            },
+            "time": "2020-12-05T12:59:03+00:00"
         }
     ],
     "packages-dev": [

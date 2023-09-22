@@ -22,7 +22,8 @@
         "qcloud/cos-sdk-v5": "^2.6",
         "qiniu/php-sdk": "^7.9",
         "ritaswc/laravel-query-logger": "^2.1",
-        "sentry/sentry-laravel": "^3.6"
+        "sentry/sentry-laravel": "^3.6",
+        "zedisdog/laravel-schema-extend": "^1.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
