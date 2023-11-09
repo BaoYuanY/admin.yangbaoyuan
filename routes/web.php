@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\web\BookController;
 use App\Http\Controllers\web\ClipboardController;
 use App\Http\Controllers\web\PasswordController;
 use App\Http\Controllers\web\UploadFileController;
@@ -41,6 +42,10 @@ Route::prefix('/clipboard')->group(function () {
     Route::delete('/{id}', [ClipboardController::class, 'delete']);
     Route::get('/add', [ClipboardController::class, 'addView']);
     Route::post('/add', [ClipboardController::class, 'add']);
+});
+
+Route::prefix('book')->group(function () {
+    Route::get('/', [BookController::class, 'show']);
 });
 
 
