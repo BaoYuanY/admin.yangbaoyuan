@@ -46,6 +46,9 @@ Route::prefix('/clipboard')->group(function () {
 
 Route::prefix('book')->group(function () {
     Route::get('/', [BookController::class, 'show']);
+    Route::get('/list', [BookController::class, 'list']);
+    Route::get('/add', [BookController::class, 'view']);
+    Route::post('/add', [BookController::class, 'add']);
 });
 
 
