@@ -25,6 +25,7 @@ class CreateBooksTable extends Migration
             $table->string('coverUrl', 64)->default('')->comment('书籍封面图片 URL');
             $table->text('summary')->nullable()->comment('书籍简介');
             $table->unsignedInteger('publishDate')->default(0)->comment('出版日期');
+            $table->unsignedTinyInteger('version')->default(0)->comment('版本');
             $table->string('language', 32)->default('中文')->comment('原始语言');
             $table->string('category')->default('')->comment('分类');
             $table->unsignedInteger('sort')->default(0)->comment('排序');
