@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/monitor', function () {
+    return json_encode(['code' => 200, 'msg' => '', 'data' => null]);
+});
+
 Route::prefix('/pwd')->group(function () {
     Route::get('/add', [PasswordController::class, 'indexAdd']);
     Route::get('/', [PasswordController::class, 'index']);
